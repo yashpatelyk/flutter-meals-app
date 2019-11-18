@@ -55,7 +55,9 @@ class MealDetails extends StatelessWidget {
                     color: Theme.of(context).accentColor,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 5, horizontal: 10),
+                        vertical: 5,
+                        horizontal: 10,
+                      ),
                       child: Text(meal.ingredients[index]),
                     ),
                   );
