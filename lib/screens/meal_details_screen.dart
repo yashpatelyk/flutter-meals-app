@@ -3,6 +3,10 @@ import 'package:meals_app/models/meal.dart';
 
 class MealDetails extends StatelessWidget {
   static const routeName = '/meal-details';
+  final Function _setFavourite;
+  final Function _isFavourite;
+
+  MealDetails(this._setFavourite, this._isFavourite);
 
   Widget buildSectionTitle(BuildContext context, String title) {
     return Container(
@@ -83,9 +87,15 @@ class MealDetails extends StatelessWidget {
                 },
                 itemCount: meal.steps.length,
               ),
-            )
+            ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          _isFavourite(meal.id) ? Icons.star : Icons.star_border,
+        ),
+        onPressed: () => _setFavourite(meal.id),
       ),
     );
   }
